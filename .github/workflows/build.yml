@@ -1,0 +1,49 @@
+name: Build CloudStream Extensions
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: "17"
+          distribution: temurin
+          cache: gradle
+
+      - name: Grant gradlew permission
+        run: chmod +x gradlew
+
+      - name: Build Pencurimoviesubmalay
+        run: ./gradlew :Pencurimoviesubmalay:assembleRelease
+
+      - name: Build Anichin
+        run: ./gradlew :Anichin:assembleRelease
+
+
+      - name: Collect .cs3 files
+        run: |
+          mkdir -p release-files
+          find . -path '*/Pencurimoviesubmalay/build/outputs/apk/release/*.apk' -exec cp {} release-files/Pencurimoviesubmalay.cs3 \;
+          find . -path '*/Anichin/build/outputs/apk/release/*.apk' -exec cp {} release-files/Anichin.cs3 \;
+          ls -la release-files/
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "release-files/*.cs3"
+          tag: "build-${{ github.run_number }}"
+          name: "Build ${{ github.run_number }}"
+          allowUpdates: true
+          token: ${{ secrets.GITHUB_TOKEN }}
