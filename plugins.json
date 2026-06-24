@@ -1,14 +1,5 @@
 [
   {
-    "name": "Anichin",
-    "url": "https://github.com/lalatlangau/cloudstream-extensions/releases/latest/download/Anichin.cs3",
-    "status": 1,
-    "version": 1,
-    "lang": "id",
-    "apiVersion": 4,
-    "iconUrl": "https://anichin.moe/favicon.ico"
-  },
-  {
     "name": "PencuriMovie SubMalay",
     "url": "https://github.com/lalatlangau/cloudstream-extensions/releases/latest/download/Pencurimoviesubmalay.cs3",
     "status": 1,
@@ -16,5 +7,14 @@
     "lang": "ms",
     "apiVersion": 4,
     "iconUrl": "https://ww105.pencurimoviesubmalay.guru/favicon.ico"
+  },
+  {
+    "name": "Anichin – Fansub Donghua Subtitle Indonesia",
+    "url": "https://github.com/lalatlangau/cloudstream-extensions/releases/latest/download/Anichin.cs3",
+    "status": 1,
+    "version": 1,
+    "lang": "id",
+    "apiVersion": 4,
+    "iconUrl": "https://anichin.cafe/favicon.ico"
   }
 ]
