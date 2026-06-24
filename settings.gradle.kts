@@ -1,5 +1,6 @@
-        // settings.gradle.kts — daftar semua provider di sini
-        rootProject.name = "cloudstream-extensions"
+// settings.gradle.kts
+// Nama dalam include() MESTI sama persis dengan nama folder dalam repo
+rootProject.name = "cloudstream-extensions"
 
-        include(":Pencurimoviesubmalay")
 include(":Anichin")
+include(":Pencurimoviesubmalay")
